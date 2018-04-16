@@ -18,7 +18,7 @@ const LayoutRoute = ({component: Component, ...rest}) => {
 const routes = (
   <Switch>
     <LayoutRoute exact path='/' component={HomePage}/>
-    <LayoutRoute path='/post/:id' component={PostPage}/>
+    <LayoutRoute path='/:category/:post_id' component={PostPage}/>
     <LayoutRoute component={NoMatch} />
   </Switch>
 );
