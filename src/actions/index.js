@@ -16,10 +16,10 @@ export function fetchCategories() {
 export const POSTS_UPDATE_COMPLETE = 'POSTS_UPDATE_COMPLETE';
 export const POSTS_UPDATE_START = 'POSTS_UPDATE_START';
 
-export function fetchPosts() {
+export function fetchPosts(category = null) {
   return (dispatch) => {
     dispatch({ type: POSTS_UPDATE_START });
-    Api.fetchPosts()
+    Api.fetchPosts(category)
       .then(payload => {
         dispatch({ type: POSTS_UPDATE_COMPLETE, payload });
       });

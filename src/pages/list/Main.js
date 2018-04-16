@@ -8,9 +8,16 @@ export default class Main extends Component {
     sortSelectValue: 'no-order',
     isAddingPost: false,
   }
-  componentWillMount() {
+
+  componentDidMount() {
     this.props.fetchCategories();
-    this.props.fetchPosts();
+    this.props.fetchPosts(this.props.category);
+  }
+
+  componentDidUpdate(prevProps) {
+    if (prevProps.category !== this.props.category) {
+      this.props.fetchPosts(this.props.category);
+    }
   }
 
   render() {
@@ -23,6 +30,12 @@ export default class Main extends Component {
             itemComponent={Category} />
         </div>
         <div className='posts'>
+          {
+            this.props.category &&
+            <div className='category-label'>
+              Displaying posts for {this.props.category} category.
+            </div>
+          }
           <div className='controls'>
             <label>
               Sort by:

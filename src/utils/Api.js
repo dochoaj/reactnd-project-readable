@@ -8,11 +8,18 @@ export default {
         return response.data.categories || [];
       });
   },
-  fetchPosts: () => {
-    return Axios.get('posts')
-      .then(response => {
-        return response.data || [];
-      });
+  fetchPosts: (category) => {
+    let promise;
+
+    if (category) {
+      promise = Axios.get(`${category}/posts`);
+    } else {
+      promise = Axios.get('posts');
+    }
+
+    return promise.then(response => {
+      return response.data || [];
+    });
   },
   votePost: (id, type) => {
     const option = type === 'up' ? 'upVote' : 'downVote';

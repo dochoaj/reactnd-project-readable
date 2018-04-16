@@ -1,9 +1,8 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 import Layout from './pages/Layout';
-import HomePage from './pages/home';
+import ListPage from './pages/list';
 import PostPage from './pages/post';
-import CategoryPage from './pages/category';
 import NoMatch from './pages/404';
 
 const LayoutRoute = ({component: Component, ...rest}) => {
@@ -18,9 +17,9 @@ const LayoutRoute = ({component: Component, ...rest}) => {
 
 const routes = (
   <Switch>
-    <LayoutRoute exact path='/' component={HomePage}/>
+    <LayoutRoute exact path='/' component={ListPage}/>
     <LayoutRoute path='/:category/:post_id' component={PostPage}/>
-    <LayoutRoute path='/:category' component={CategoryPage}/>
+    <LayoutRoute path='/:category' component={ListPage}/>
     <LayoutRoute component={NoMatch} />
   </Switch>
 );

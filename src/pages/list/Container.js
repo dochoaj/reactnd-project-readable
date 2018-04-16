@@ -10,13 +10,14 @@ const mapStateToProps = (state, ownProps) => {
       data: state.posts.data.filter(el => el.deleted === false),
     },
     currentUser: state.user.username,
+    category: ownProps.match.params.category,
   };
 }
 
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     fetchCategories: () => dispatch(fetchCategories()),
-    fetchPosts: () => dispatch(fetchPosts()),
+    fetchPosts: (category) => dispatch(fetchPosts(category)),
     votePost: (id, type) => dispatch(votePost(id, type)),
     deletePost: (id) => dispatch(deletePost(id)),
     createPost: (post) => dispatch(createPost(post)),
