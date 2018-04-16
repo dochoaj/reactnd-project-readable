@@ -1,3 +1,4 @@
+import uid from 'uid';
 import Axios from './ReadableAxios';
 
 export default {
@@ -17,6 +18,18 @@ export default {
     const option = type === 'up' ? 'upVote' : 'downVote';
 
     return Axios.post(`posts/${id}`, { option })
+      .then(response => {
+        return response.data;
+      });
+  },
+  deletePost: (id) => {
+    return Axios.delete(`posts/${id}`)
+      .then(response => {
+        return response.data;
+      });
+  },
+  createPost: (post) => {
+    return Axios.post('posts', {...post, id: uid()})
       .then(response => {
         return response.data;
       });

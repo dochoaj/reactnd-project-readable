@@ -37,3 +37,24 @@ export function votePost(id, type) {
     Api.votePost(id, type);
   }
 }
+
+export const DELETE_POST = 'DELETE_POST';
+
+export function deletePost(id) {
+  return (dispatch) => {
+    dispatch({ type: DELETE_POST, payload: id });
+    Api.deletePost(id);
+  }
+}
+
+export const CREATE_POST = 'CREATE_POST';
+
+export function createPost(post) {
+  return (dispatch) => {
+    Api.createPost(post)
+      .then(payload => {
+        dispatch({ type: CREATE_POST, payload })
+      });
+  };
+}
+

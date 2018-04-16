@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
-import { ItemList, Category, Post } from '../../components';
+import { ItemList, Category, Post, PostForm } from '../../components';
 
 export default class Main extends Component {
   state = {
     postsSortedBy: {},
     sortSelectValue: 'no-order',
+    isAddingPost: false,
   }
   componentWillMount() {
     this.props.fetchCategories();
@@ -27,6 +28,11 @@ export default class Main extends Component {
             <option value='voteScore-asc'>Lowest rated first</option>
             <option value='voteScore-desc'>Highest rated first</option>
           </select>
+          <button type='button' onClick={this.onAddPostButtonClick}>Add Post</button>
+          {
+            this.state.isAddingPost &&
+            <PostForm categories={this.props.categories.data} onSave={this.createPost} />
+          }
           <ItemList
             sortBy={this.state.postsSortedBy}
             data={this.props.posts.data}
@@ -35,6 +41,20 @@ export default class Main extends Component {
         </div>
       </div>
     );
+  }
+
+  createPost = (title, body, category) => {
+    return this.props.createPost({
+      timestamp: Date.now(),
+      title, body, category,
+      author: this.props.currentUser,
+    });
+  }
+
+  onAddPostButtonClick = () => {
+    this.setState({
+      isAddingPost: !this.state.isAddingPost
+    });
   }
 
   onSortSelectChange = (event) => {
@@ -52,6 +72,7 @@ export default class Main extends Component {
   postInjectedProps() {
     return {
       vote: this.props.votePost,
+      delete: this.props.deletePost,
     };
   }
 }

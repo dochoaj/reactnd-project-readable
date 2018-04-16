@@ -21,6 +21,16 @@ export default (state = initialState, action) => {
       newData[index]['voteScore'] -= 1;
       return {...state, data: newData};
     }
+    case 'DELETE_POST': {
+      const newData = [...state.data];
+      const index = state.data.findIndex(el => el.id === action.payload);
+      newData[index]['deleted'] = true;
+      return {...state, data: newData};
+    }
+    case 'CREATE_POST': {
+      const newData = [...state.data, action.payload];
+      return {...state, data: newData};
+    }
     default:
       return state
   }

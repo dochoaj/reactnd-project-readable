@@ -1,11 +1,15 @@
 import { connect } from 'react-redux';
-import { fetchCategories, fetchPosts, votePost } from '../../actions';
+import { fetchCategories, fetchPosts, votePost, deletePost, createPost } from '../../actions';
 import Main from './Main';
 
 const mapStateToProps = (state, ownProps) => {
   return {
     categories: state.categories,
-    posts: state.posts,
+    posts: {
+      loading: state.posts.loading,
+      data: state.posts.data.filter(el => el.deleted === false),
+    },
+    currentUser: state.user.username,
   };
 }
 
@@ -14,6 +18,8 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     fetchCategories: () => dispatch(fetchCategories()),
     fetchPosts: () => dispatch(fetchPosts()),
     votePost: (id, type) => dispatch(votePost(id, type)),
+    deletePost: (id) => dispatch(deletePost(id)),
+    createPost: (post) => dispatch(createPost(post)),
   }
 }
 
