@@ -3,8 +3,6 @@ import uid from 'uid';
 
 class ItemList extends Component {
   render() {
-    console.log(this.props.sortBy);
-
     if (this.props.data.length === 0) {
       return null;
     }
@@ -20,7 +18,7 @@ class ItemList extends Component {
     const data = this.prepareData();
     return data.map((item) => {
       const key = item.id || uid();
-      return React.createElement(this.props.itemComponent, {...item, key});
+      return React.createElement(this.props.itemComponent, {...item, key, ...this.props.injectProps});
     });
   }
 

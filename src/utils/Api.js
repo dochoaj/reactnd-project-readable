@@ -12,5 +12,13 @@ export default {
       .then(response => {
         return response.data || [];
       });
+  },
+  votePost: (id, type) => {
+    const option = type === 'up' ? 'upVote' : 'downVote';
+
+    return Axios.post(`posts/${id}`, { option })
+      .then(response => {
+        return response.data;
+      });
   }
 }

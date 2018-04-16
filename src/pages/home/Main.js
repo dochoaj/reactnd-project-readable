@@ -30,6 +30,7 @@ export default class Main extends Component {
           <ItemList
             sortBy={this.state.postsSortedBy}
             data={this.props.posts.data}
+            injectProps={this.postInjectedProps()}
             itemComponent={Post} />
         </div>
       </div>
@@ -46,5 +47,11 @@ export default class Main extends Component {
     const postsSortedBy = { field: parsedValue[0], type: parsedValue[1] }
 
     this.setState({ postsSortedBy, sortSelectValue});
+  }
+
+  postInjectedProps() {
+    return {
+      vote: this.props.votePost,
+    };
   }
 }
