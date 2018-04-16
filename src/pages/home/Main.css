@@ -1,0 +1,27 @@
+.home {
+  padding: 0 10px;
+}
+
+.home .categories {
+  margin-bottom: 10px;
+}
+
+.home .posts .controls {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+.home .posts .controls select {
+  margin-left: 10px;
+}
+
+.home .posts .controls button {
+  margin-left: 10px;
+}
+
+.home .posts .content {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+}

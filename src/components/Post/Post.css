@@ -1,0 +1,68 @@
+.post {
+  width: 600px;
+  margin-bottom: 20px;
+  padding: 10px;
+  border: 1px solid #b8b2b2;
+}
+
+.post .show {
+  display: flex;
+  flex-direction: column;
+}
+
+.post .body.full-false{
+  max-width: 400px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.post .show .data-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 5px;
+}
+
+.post .main-info {
+  flex-grow: 2;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  width: 340px;
+}
+
+.post .title {
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.post .when {
+  font-size: 16px;
+  font-style: italic;
+}
+
+.post .actions span:hover {
+  cursor: pointer;
+}
+
+.post .vote-info {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.post .score {
+  text-align: center;
+  font-size: 35px;
+}
+
+.post .vote-controls {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.vote-controls div:hover {
+  cursor: pointer;
+}

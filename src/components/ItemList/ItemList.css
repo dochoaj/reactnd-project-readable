@@ -1,0 +1,13 @@
+.item-list {
+  display: flex;
+}
+
+.item-list.item-list-vertical {
+  flex-direction: column;
+  justify-content: center;
+}
+
+.item-list.item-list-horizontal {
+  flex-direction: row;
+  align-items: center;
+}

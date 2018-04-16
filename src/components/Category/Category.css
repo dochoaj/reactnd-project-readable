@@ -1,0 +1,17 @@
+.category {
+  padding: 0px 15px;
+  background-color: #d5eded;
+  border-radius: 8px;
+  color: #4b3838;
+  border: 1px solid #407a78;
+  margin-right: 10px;
+}
+
+.category:hover {
+  cursor: pointer;
+}
+
+.category a {
+  text-decoration: none;
+  color: #4b3838;
+}

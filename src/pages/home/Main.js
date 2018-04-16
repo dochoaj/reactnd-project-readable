@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { ItemList, Category, Post, PostForm } from '../../components';
+import './Main.css';
 
 export default class Main extends Component {
   state = {
@@ -17,27 +18,35 @@ export default class Main extends Component {
       <div className='home'>
         <div className='categories'>
           <ItemList
+            orientation='horizontal'
             data={this.props.categories.data}
             itemComponent={Category} />
         </div>
         <div className='posts'>
-          <select value={this.state.sortSelectValue} onChange={this.onSortSelectChange}>
-            <option value='no-order'>Default</option>
-            <option value='timestamp-asc'>Older first</option>
-            <option value='timestamp-desc'>Recent first</option>
-            <option value='voteScore-asc'>Lowest rated first</option>
-            <option value='voteScore-desc'>Highest rated first</option>
-          </select>
-          <button type='button' onClick={this.onAddPostButtonClick}>Add Post</button>
-          {
-            this.state.isAddingPost &&
-            <PostForm categories={this.props.categories.data} onSave={this.createPost} />
-          }
-          <ItemList
-            sortBy={this.state.postsSortedBy}
-            data={this.props.posts.data}
-            injectProps={this.postInjectedProps()}
-            itemComponent={Post} />
+          <div className='controls'>
+            <label>
+              Sort by:
+              <select value={this.state.sortSelectValue} onChange={this.onSortSelectChange}>
+                <option value='no-order'>Default</option>
+                <option value='timestamp-asc'>Older first</option>
+                <option value='timestamp-desc'>Recent first</option>
+                <option value='voteScore-asc'>Lowest rated first</option>
+                <option value='voteScore-desc'>Highest rated first</option>
+              </select>
+            </label>
+            <button type='button' onClick={this.onAddPostButtonClick}>Add Post</button>
+          </div>
+          <div className='content'>
+            {
+              this.state.isAddingPost &&
+              <PostForm categories={this.props.categories.data} onSave={this.createPost} />
+            }
+            <ItemList
+              sortBy={this.state.postsSortedBy}
+              data={this.props.posts.data}
+              injectProps={this.postInjectedProps()}
+              itemComponent={Post} />
+          </div>
         </div>
       </div>
     );

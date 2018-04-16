@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import uid from 'uid';
+import './ItemList.css';
 
 class ItemList extends Component {
   render() {
@@ -8,7 +9,7 @@ class ItemList extends Component {
     }
 
     return (
-      <div className='item-list'>
+      <div className={`item-list item-list-${this.props.orientation}`}>
         {this.buildRows()}
       </div>
     );
@@ -45,6 +46,7 @@ class ItemList extends Component {
 
 ItemList.defaultProps = {
   sortBy: {},
+  orientation: 'vertical',
 }
 
 export default ItemList;

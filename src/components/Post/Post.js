@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import moment from 'moment';
 
-export default class Post extends Component {
+import './Post.css';
+
+class Post extends Component {
   state = {
     editMode: false,
     title: this.props.title,
@@ -34,14 +37,14 @@ export default class Post extends Component {
 
   editMode() {
     return (
-      <div className='show'>
-        <div className='form-field'>
+      <div className='edit'>
+        <div className='edit-field'>
           <label>
             Title:
             <input type='text' required value={this.state.title} onChange={this.onTitleChange} />
           </label>
         </div>
-        <div className='form-field'>
+        <div className='edit-field'>
           <label>
             Description:
             <textarea required value={this.state.description} onChange={this.onDescriptionChange} />
@@ -57,14 +60,36 @@ export default class Post extends Component {
   showMode() {
     return (
       <div className='show'>
-        <div className='title'>{this.props.title}</div>
-        <div className='author'>{this.props.author}</div>
-        <div className='timestamp'>{moment(this.props.timestamp).format('L')}</div>
-        <div className='comments'>{this.props.commentCount}</div>
-        <div className='score'>{this.props.voteScore}</div>
-        <div className='voting-up' onClick={this.onUpVoteClick}>+1</div>
-        <div className='voting-down' onClick={this.onDownVoteClick}>-1</div>
-        <div className='actions'><span onClick={this.onEditClick}>Edit</span> | <span onClick={this.onDeleteClick}>Delete</span></div>
+        <div className='data-row'>
+          <div className='main-info'>
+            <div className='title'>{this.props.title}</div>
+            <div className='when'>
+              Created by {this.props.author} on {moment(this.props.timestamp).format('L')}
+            </div>
+          </div>
+          <div className='vote-info'>
+            <div className='score'>{this.props.voteScore}</div>
+            <div className='vote-controls'>
+              <div className='voting-up' onClick={this.onUpVoteClick}>+1</div>
+              <div className='voting-down' onClick={this.onDownVoteClick}>-1</div>
+            </div>
+          </div>
+        </div>
+        <div className='data-row'>
+          <div className={`body full-${this.props.displayFullBody}`}>
+            {this.props.body}
+          </div>
+          {
+            !this.props.displayFullBody &&
+            <div className='read-more'>
+              <Link to={`/${this.props.category}/${this.props.id}`}>Read more...</Link>
+            </div>
+          }
+        </div>
+        <div className='data-row'>
+          <div className='comments'>{this.props.commentCount}</div>
+          <div className='actions'><span onClick={this.onEditClick}>Edit</span> | <span onClick={this.onDeleteClick}>Delete</span></div>
+        </div>
       </div>
     );
   }
@@ -101,3 +126,9 @@ export default class Post extends Component {
     return !test;
   }
 }
+
+Post.defaultProps = {
+  displayFullBody: false,
+}
+
+export default Post;
