@@ -1,0 +1,26 @@
+import React from 'react';
+import { Switch, Route } from 'react-router-dom';
+import Layout from './pages/Layout';
+import HomePage from './pages/home';
+import PostPage from './pages/post';
+import NoMatch from './pages/404';
+
+const LayoutRoute = ({component: Component, ...rest}) => {
+  return (
+    <Route {...rest} render={matchProps => (
+      <Layout>
+          <Component {...matchProps} />
+      </Layout>
+    )} />
+  )
+};
+
+const routes = (
+  <Switch>
+    <LayoutRoute exact path='/' component={HomePage}/>
+    <LayoutRoute path='/post/:id' component={PostPage}/>
+    <LayoutRoute component={NoMatch} />
+  </Switch>
+);
+
+export default routes;
