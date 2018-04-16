@@ -51,6 +51,10 @@ export default class Main extends Component {
     });
   }
 
+  updatePost = (id, title, body) => {
+    return this.props.updatePost({ id, title, body });
+  }
+
   onAddPostButtonClick = () => {
     this.setState({
       isAddingPost: !this.state.isAddingPost
@@ -73,6 +77,7 @@ export default class Main extends Component {
     return {
       vote: this.props.votePost,
       delete: this.props.deletePost,
+      edit: this.updatePost,
     };
   }
 }

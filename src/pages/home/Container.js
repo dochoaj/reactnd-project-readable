@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { fetchCategories, fetchPosts, votePost, deletePost, createPost } from '../../actions';
+import { fetchCategories, fetchPosts, votePost, deletePost, createPost, updatePost } from '../../actions';
 import Main from './Main';
 
 const mapStateToProps = (state, ownProps) => {
@@ -20,6 +20,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     votePost: (id, type) => dispatch(votePost(id, type)),
     deletePost: (id) => dispatch(deletePost(id)),
     createPost: (post) => dispatch(createPost(post)),
+    updatePost: (post) => dispatch(updatePost(post)),
   }
 }
 

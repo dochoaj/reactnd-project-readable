@@ -31,6 +31,12 @@ export default (state = initialState, action) => {
       const newData = [...state.data, action.payload];
       return {...state, data: newData};
     }
+    case 'UPDATE_POST': {
+      const newData = [...state.data];
+      const index = state.data.findIndex(el => el.id === action.payload.id);
+      newData[index] = { ...newData[index], title: action.payload.title, body: action.payload.body}
+      return {...state, data: newData};
+    }
     default:
       return state
   }

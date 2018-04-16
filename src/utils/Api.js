@@ -33,5 +33,11 @@ export default {
       .then(response => {
         return response.data;
       });
+  },
+  updatePost: (post) => {
+    return Axios.put(`posts/${post.id}`, post)
+      .then(response => {
+        return response.data;
+      });
   }
 }

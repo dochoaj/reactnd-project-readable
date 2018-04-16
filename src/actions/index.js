@@ -58,3 +58,12 @@ export function createPost(post) {
   };
 }
 
+export const UPDATE_POST = 'UPDATE_POST';
+
+export function updatePost(post) {
+  return (dispatch) => {
+    dispatch({ type: UPDATE_POST, payload: post});
+    Api.updatePost(post);
+  };
+}
+
