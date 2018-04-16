@@ -1,9 +1,9 @@
 import ItemList from './ItemList/ItemList';
 import Category from './Category/Category';
-import Post from './Post/Post';
+import LitePost from './LitePost/LitePost';
 import PostForm from './PostForm/PostForm';
 
 export { ItemList };
 export { Category };
-export { Post };
+export { LitePost };
 export { PostForm };

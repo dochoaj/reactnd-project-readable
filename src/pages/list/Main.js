@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { ItemList, Category, Post, PostForm } from '../../components';
+import { ItemList, Category, LitePost, PostForm } from '../../components';
 import './Main.css';
 
 export default class Main extends Component {
@@ -58,7 +58,7 @@ export default class Main extends Component {
               sortBy={this.state.postsSortedBy}
               data={this.props.posts.data}
               injectProps={this.postInjectedProps()}
-              itemComponent={Post} />
+              itemComponent={LitePost} />
           </div>
         </div>
       </div>

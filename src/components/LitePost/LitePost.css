@@ -40,7 +40,7 @@
   flex-direction: column;
 }
 
-.post .body.full-false{
+.post .body {
   max-width: 400px;
   white-space: nowrap;
   overflow: hidden;

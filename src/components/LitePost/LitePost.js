@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import moment from 'moment';
 
-import './Post.css';
+import './LitePost.css';
 
-class Post extends Component {
+class LitePost extends Component {
   state = {
     editMode: false,
     title: this.props.title,
@@ -76,15 +76,12 @@ class Post extends Component {
           </div>
         </div>
         <div className='data-row'>
-          <div className={`body full-${this.props.displayFullBody}`}>
+          <div className={`body`}>
             {this.props.body}
           </div>
-          {
-            !this.props.displayFullBody &&
-            <div className='read-more'>
+          <div className='read-more'>
               <Link to={`/${this.props.category}/${this.props.id}`}>Read more...</Link>
             </div>
-          }
         </div>
         <div className='data-row'>
           <div className='comments'>{this.props.commentCount}</div>
@@ -127,8 +124,4 @@ class Post extends Component {
   }
 }
 
-Post.defaultProps = {
-  displayFullBody: false,
-}
-
-export default Post;
+export default LitePost;
