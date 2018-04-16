@@ -5,6 +5,36 @@
   border: 1px solid #b8b2b2;
 }
 
+.post .edit {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.post .edit input {
+  width: 100%;
+}
+
+.post .edit textarea {
+  width: 100%;
+}
+
+.post .edit .edit-field {
+  margin-top: 10px;
+}
+
+.post .edit .actions {
+  margin-top: 10px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.post .edit .actions button {
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
 .post .show {
   display: flex;
   flex-direction: column;
