@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
-export default class PostForm extends Component {
+class PostForm extends Component {
   state = {
     title: '',
     description: '',
@@ -65,3 +66,14 @@ export default class PostForm extends Component {
     });
   }
 }
+
+PostForm.propTypes = {
+  onSave: PropTypes.func.isRequired,
+  categories: PropTypes.arrayOf(
+    PropTypes.shape({
+      name: PropTypes.string.isRequired
+    })
+  ).isRequired
+}
+
+export default PostForm;

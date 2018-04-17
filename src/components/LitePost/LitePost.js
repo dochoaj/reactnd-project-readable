@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import moment from 'moment';
+import PropTypes from 'prop-types';
 
 import './LitePost.css';
 
@@ -123,5 +124,19 @@ class LitePost extends Component {
     return !test;
   }
 }
+
+LitePost.propTypes = {
+  id: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  body: PropTypes.string.isRequired,
+  category: PropTypes.string.isRequired,
+  author: PropTypes.string.isRequired,
+  timestamp: PropTypes.number.isRequired,
+  voteScore: PropTypes.number.isRequired,
+  commentCount: PropTypes.number.isRequired,
+  vote: PropTypes.func.isRequired,
+  delete: PropTypes.func.isRequired,
+  edit: PropTypes.func.isRequired,
+};
 
 export default LitePost;

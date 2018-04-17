@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
-export default class PostForm extends Component {
+class CommentForm extends Component {
   state = {
     body: '',
   }
@@ -35,3 +36,9 @@ export default class PostForm extends Component {
     this.props.onSave(this.state.body);
   }
 }
+
+CommentForm.Proptypes = {
+  onSave: PropTypes.func.isRequired,
+}
+
+export default CommentForm;

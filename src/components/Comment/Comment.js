@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import moment from 'moment';
 
 import './Comment.css';
@@ -107,6 +108,18 @@ class Comment extends Component {
     const test = this.state.body && true;
     return !test;
   }
+}
+
+Comment.Proptypes = {
+  id: PropTypes.string.isRequired,
+  body: PropTypes.string.isRequired,
+  author: PropTypes.string.isRequired,
+  timestamp: PropTypes.number.isRequired,
+  voteScore: PropTypes.number.isRequired,
+  commentCount: PropTypes.number.isRequired,
+  vote: PropTypes.func.isRequired,
+  edit: PropTypes.func.isRequired,
+  delete: PropTypes.func.isRequired,
 }
 
 export default Comment;

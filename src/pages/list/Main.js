@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+
 import { ItemList, Category, LitePost, PostForm } from '../../components';
 import './Main.css';
 
-export default class Main extends Component {
+class Main extends Component {
   state = {
     postsSortedBy: {},
     sortSelectValue: 'no-order',
@@ -107,3 +109,24 @@ export default class Main extends Component {
     };
   }
 }
+
+Main.propTypes = {
+  fetchCategories: PropTypes.func.isRequired,
+  fetchPosts: PropTypes.func.isRequired,
+  category: PropTypes.string,
+  categories: PropTypes.shape({
+    loading: PropTypes.bool,
+    data: PropTypes.array,
+  }).isRequired,
+  posts: PropTypes.shape({
+    loading: PropTypes.bool,
+    data: PropTypes.array,
+  }).isRequired,
+  currentUser: PropTypes.string,
+  updatePost: PropTypes.func.isRequired,
+  votePost: PropTypes.func.isRequired,
+  deletePost: PropTypes.func.isRequired,
+  createPost: PropTypes.func.isRequired,
+}
+
+export default Main;

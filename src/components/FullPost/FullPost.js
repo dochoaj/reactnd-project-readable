@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import moment from 'moment';
+import PropTypes from 'prop-types';
 
 import './FullPost.css';
 
-export default class FullPost extends Component {
+class FullPost extends Component {
   state = {
     editMode: false,
     title: this.props.title,
@@ -94,10 +95,6 @@ export default class FullPost extends Component {
     this.props.delete(this.props.id);
   }
 
-  onUpdateClick = () => {
-    this.props.update(this.props.id, this.state.title, this.state.body);
-  }
-
   onEditClick = () => {
     this.toggleEditMode();
   }
@@ -130,3 +127,18 @@ export default class FullPost extends Component {
     return !test;
   }
 }
+
+FullPost.Proptypes = {
+  id: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  body: PropTypes.string.isRequired,
+  author: PropTypes.string.isRequired,
+  timestamp: PropTypes.number.isRequired,
+  voteScore: PropTypes.number.isRequired,
+  commentCount: PropTypes.number.isRequired,
+  vote: PropTypes.func.isRequired,
+  delete: PropTypes.func.isRequired,
+  edit: PropTypes.func.isRequired,
+};
+
+export default FullPost;

@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import uid from 'uid';
+import PropTypes from 'prop-types';
+
 import './ItemList.css';
 
 class ItemList extends Component {
@@ -47,6 +49,22 @@ class ItemList extends Component {
 ItemList.defaultProps = {
   sortBy: {},
   orientation: 'vertical',
+  injectProps: {},
+}
+
+ItemList.propTypes = {
+  data: PropTypes.arrayOf(
+    PropTypes.object
+  ).isRequired,
+  orientation: PropTypes.oneOf(['vertical', 'horizontal']),
+  itemComponent: PropTypes.func.isRequired,
+  injectProps: PropTypes.object,
+  sortBy: PropTypes.objectOf(
+    PropTypes.shape({
+      type: PropTypes.string.isRequired,
+      field: PropTypes.string.isRequired,
+    })
+  ),
 }
 
 export default ItemList;

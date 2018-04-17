@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import { FullPost, ItemList, CommentForm, Comment } from '../../components';
 import uid from 'uid';
 
 import './Main.css';
 
-export default class Main extends Component {
+class Main extends Component {
   state = {
     postsSortedBy: {},
     sortSelectValue: 'no-order',
@@ -109,3 +110,29 @@ export default class Main extends Component {
     this.props.deletePost(id, this.props.history.goBack);
   }
 }
+
+Main.propTypes = {
+  fetchCategories: PropTypes.func.isRequired,
+  fetchComments: PropTypes.func.isRequired,
+  fetchPosts: PropTypes.func.isRequired,
+  category: PropTypes.string,
+  categories: PropTypes.shape({
+    loading: PropTypes.bool,
+    data: PropTypes.array,
+  }).isRequired,
+  post: PropTypes.shape({
+    loading: PropTypes.bool,
+    data: PropTypes.object,
+  }).isRequired,
+  currentUser: PropTypes.string,
+  updatePost: PropTypes.func.isRequired,
+  votePost: PropTypes.func.isRequired,
+  deletePost: PropTypes.func.isRequired,
+  voteComment: PropTypes.func.isRequired,
+  updateComment: PropTypes.func.isRequired,
+  postId: PropTypes.string.isRequired,
+  deleteComment: PropTypes.func.isRequired,
+  createComment: PropTypes.func.isRequired,
+}
+
+export default Main;
