@@ -6,7 +6,7 @@ This is my implementation of the `Readable` React Fundamentals Nanodegree projec
 
 * Install all project dependencies with `yarn`
 
-## Usage
+## Usage
 
 * You need to setup the backend server at localhost:3001
 * Start the development server with `yarn start`, a browser window will be open pointing the correct localhost address.
