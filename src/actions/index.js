@@ -67,3 +67,70 @@ export function updatePost(post) {
   };
 }
 
+export const FETCH_POST_START = 'FETCH_POST_START';
+export const FETCH_POST_COMPLETE = 'FETCH_POST_COMPLETE';
+
+export function fetchPost(id) {
+  return (dispatch) => {
+    dispatch({ type: FETCH_POST_START });
+    Api.fetchPost(id)
+      .then(payload => {
+        dispatch({ type: FETCH_POST_COMPLETE, payload });
+      });
+  }
+}
+
+export const FETCH_POST_COMMENTS_START = 'FETCH_POST_COMMENTS_START';
+export const FETCH_POST_COMMENTS_COMPLETE = 'FETCH_POST_COMMENTS_COMPLETE';
+
+export function fetchComments(id) {
+  return (dispatch) => {
+    dispatch({ type: FETCH_POST_COMMENTS_START });
+    Api.fetchPostComments(id)
+      .then(payload => {
+        dispatch({ type: FETCH_POST_COMMENTS_COMPLETE, payload });
+      });
+  }
+}
+
+export const UP_VOTE_COMMENT = 'UP_VOTE_COMMENT';
+export const DOWN_VOTE_COMMENT = 'DOWN_VOTE_COMMENT';
+
+export function voteComment(id, type) {
+  const voteType = type === 'up' ? UP_VOTE_COMMENT : DOWN_VOTE_COMMENT;
+
+  return (dispatch) => {
+    dispatch({ type: voteType, payload: id });
+    Api.voteComment(id, type);
+  }
+}
+
+export const DELETE_COMMENT = 'DELETE_COMMENT';
+
+export function deleteComment(id) {
+  return (dispatch) => {
+    dispatch({ type: DELETE_COMMENT, payload: id });
+    Api.deleteComment(id);
+  }
+}
+
+export const CREATE_COMMENT = 'CREATE_COMMENT';
+
+export function createComment(comment) {
+  return (dispatch) => {
+    Api.createComment(comment)
+      .then(payload => {
+        dispatch({ type: CREATE_COMMENT, payload })
+      });
+  };
+}
+
+export const UPDATE_COMMENT = 'UPDATE_COMMENT';
+
+export function updateComment(comment) {
+  return (dispatch) => {
+    dispatch({ type: UPDATE_COMMENT, payload: comment});
+    Api.updateComment(comment);
+  };
+}
+

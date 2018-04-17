@@ -1,26 +1,26 @@
-.home {
+.list-page {
   padding: 0 10px;
 }
 
-.home .categories {
+.list-page .categories {
   margin-bottom: 10px;
 }
 
-.home .posts .controls {
+.list-page .posts .controls {
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
 }
 
-.home .posts .controls select {
+.list-page .posts .controls select {
   margin-left: 10px;
 }
 
-.home .posts .controls button {
+.list-page .posts .controls button {
   margin-left: 10px;
 }
 
-.home .posts .content {
+.list-page .posts .content {
   margin-top: 10px;
   display: flex;
   justify-content: center;

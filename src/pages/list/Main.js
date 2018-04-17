@@ -22,7 +22,7 @@ export default class Main extends Component {
 
   render() {
     return (
-      <div className='home'>
+      <div className='list-page'>
         <div className='categories'>
           <ItemList
             orientation='horizontal'
@@ -66,6 +66,10 @@ export default class Main extends Component {
   }
 
   createPost = (title, body, category) => {
+    this.setState({
+      isAddingPost: !this.state.isAddingPost
+    });
+
     return this.props.createPost({
       timestamp: Date.now(),
       title, body, category,

@@ -1,3 +1,3 @@
-import Main from './Main';
+import Container from './Container';
 
-export default Main;
+export default Container;

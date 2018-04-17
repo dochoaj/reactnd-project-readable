@@ -5,10 +5,7 @@ import Main from './Main';
 const mapStateToProps = (state, ownProps) => {
   return {
     categories: state.categories,
-    posts: {
-      loading: state.posts.loading,
-      data: state.posts.data.filter(el => el.deleted === false),
-    },
+    posts: {...state.posts, data: state.posts.data.filter(el => el.deleted === false)},
     currentUser: state.user.username,
     category: ownProps.match.params.category,
   };
