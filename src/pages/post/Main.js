@@ -18,7 +18,7 @@ export default class Main extends Component {
   }
 
   componentDidUpdate() {
-    if (!this.props.post.data) {
+    if (!this.props.post.data && !this.props.post.loading) {
       this.props.history.push('/404');
     }
   }

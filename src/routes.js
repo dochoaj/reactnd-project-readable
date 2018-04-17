@@ -18,10 +18,9 @@ const LayoutRoute = ({component: Component, ...rest}) => {
 const routes = (
   <Switch>
     <LayoutRoute exact path='/' component={ListPage}/>
-    <LayoutRoute exact path='/404' component={NoMatch}/>
-    <LayoutRoute path='/:category/:post_id' component={PostPage}/>
-    <LayoutRoute path='/:category' component={ListPage}/>
-    <LayoutRoute component={NoMatch} />
+    <Route exact path='/404' component={NoMatch} />
+    <LayoutRoute exact path='/:category/:post_id' component={PostPage}/>
+    <LayoutRoute exact path='/:category' component={ListPage}/>
   </Switch>
 );
 
