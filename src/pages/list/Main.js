@@ -26,7 +26,7 @@ export default class Main extends Component {
         <div className='categories'>
           <ItemList
             orientation='horizontal'
-            data={this.props.categories.data}
+            data={[{name: 'all', path: ''} , ...this.props.categories.data]}
             itemComponent={Category} />
         </div>
         <div className='posts'>

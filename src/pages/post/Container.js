@@ -23,7 +23,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     fetchPosts: (id) => dispatch(fetchPosts()),
     votePost: (id, type) => dispatch(votePost(id, type)),
     updatePost: (post) => dispatch(updatePost(post)),
-    deletePost: (id) => dispatch(deletePost(id)),
+    deletePost: (id, cb) => dispatch(deletePost(id, cb)),
     fetchComments: (id) => dispatch(fetchComments(id)),
     voteComment: (id, type) => dispatch(voteComment(id, type)),
     updateComment: (comment) => dispatch(updateComment(comment)),

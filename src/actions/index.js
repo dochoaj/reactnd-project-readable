@@ -40,10 +40,15 @@ export function votePost(id, type) {
 
 export const DELETE_POST = 'DELETE_POST';
 
-export function deletePost(id) {
+export function deletePost(id, cb = null) {
   return (dispatch) => {
     dispatch({ type: DELETE_POST, payload: id });
-    Api.deletePost(id);
+    Api.deletePost(id)
+      .then(() => {
+        if (typeof cb === 'function') {
+          cb();
+        }
+      });
   }
 }
 

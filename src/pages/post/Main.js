@@ -13,12 +13,17 @@ export default class Main extends Component {
   }
 
   componentDidMount() {
-    this.props.fetchPosts();
+    this.props.fetchPosts()
     this.props.fetchComments(this.props.postId);
   }
 
+  componentDidUpdate() {
+    if (!this.props.post.data) {
+      this.props.history.push('/404');
+    }
+  }
+
   render() {
-    console.log(this.props);
     return (
       <div className='post-page'>
         <Link to='/'>Go to main page</Link>
@@ -101,7 +106,6 @@ export default class Main extends Component {
   }
 
   deletePost = (id) => {
-    this.props.deletePost(id);
-    this.props.history.goBack();
+    this.props.deletePost(id, this.props.history.goBack);
   }
 }
