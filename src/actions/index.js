@@ -114,8 +114,10 @@ export const DELETE_COMMENT = 'DELETE_COMMENT';
 
 export function deleteComment(id) {
   return (dispatch) => {
-    dispatch({ type: DELETE_COMMENT, payload: id });
-    Api.deleteComment(id);
+    Api.deleteComment(id)
+      .then(payload => {
+        dispatch({ type: DELETE_COMMENT, payload });
+      });
   }
 }
 

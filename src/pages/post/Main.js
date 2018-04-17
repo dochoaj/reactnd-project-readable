@@ -74,8 +74,6 @@ class Main extends Component {
       isAddingComment: !this.state.isAddingComment
     });
 
-    this.props.fetchPosts();
-
     return this.props.createComment({
       timestamp: Date.now(),
       body,

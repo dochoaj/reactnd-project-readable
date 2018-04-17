@@ -59,12 +59,10 @@ ItemList.propTypes = {
   orientation: PropTypes.oneOf(['vertical', 'horizontal']),
   itemComponent: PropTypes.func.isRequired,
   injectProps: PropTypes.object,
-  sortBy: PropTypes.objectOf(
-    PropTypes.shape({
-      type: PropTypes.string.isRequired,
-      field: PropTypes.string.isRequired,
-    })
-  ),
+  sortBy: PropTypes.shape({
+    type: PropTypes.string,
+    field: PropTypes.string,
+  }),
 }
 
 export default ItemList;
