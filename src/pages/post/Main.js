@@ -27,7 +27,7 @@ export default class Main extends Component {
     return (
       <div className='post-page'>
         <Link to='/'>Go to main page</Link>
-        <FullPost {...this.props.post.data} edit={this.props.updatePost} delete={this.deletePost}/>
+        <FullPost {...this.props.post.data} edit={this.props.updatePost} delete={this.deletePost} vote={this.props.votePost}/>
         <div className='controls'>
           <label>
             Sort comments by:
