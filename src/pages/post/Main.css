@@ -1,0 +1,17 @@
+.post-page {
+  padding: 10px;
+}
+
+.post-page .controls {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+.post-page .controls button {
+  margin-left: 10px;
+}
+
+.post-page .controls select {
+  margin-left: 10px;
+}

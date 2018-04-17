@@ -1,0 +1,24 @@
+.comment .show {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border-bottom: 1px solid;
+  padding: 5px;
+}
+
+.comment .show .vote-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.comment .show .score {
+  text-align: center;
+  font-size: 40px;
+}
+
+.comment .show .vote-controls {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}

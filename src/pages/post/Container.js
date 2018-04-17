@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
-import { fetchCategories, fetchPosts, votePost, updatePost, fetchComments,
+import { withRouter } from 'react-router-dom';
+import { fetchCategories, fetchPosts, votePost, updatePost, deletePost, fetchComments,
   createComment, voteComment, updateComment, deleteComment } from '../../actions';
 import Main from './Main';
 
@@ -22,6 +23,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     fetchPosts: (id) => dispatch(fetchPosts()),
     votePost: (id, type) => dispatch(votePost(id, type)),
     updatePost: (post) => dispatch(updatePost(post)),
+    deletePost: (id) => dispatch(deletePost(id)),
     fetchComments: (id) => dispatch(fetchComments(id)),
     voteComment: (id, type) => dispatch(voteComment(id, type)),
     updateComment: (comment) => dispatch(updateComment(comment)),
@@ -31,4 +33,4 @@ const mapDispatchToProps = (dispatch, ownProps) => {
 }
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(Main);
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(Main));

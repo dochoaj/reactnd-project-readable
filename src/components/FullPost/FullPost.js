@@ -10,6 +10,13 @@ export default class FullPost extends Component {
     description: this.props.body,
   }
 
+  static getDerivedStateFromProps(nextProps) {
+    return {
+      title: nextProps.title,
+      description: nextProps.body,
+    };
+  }
+
   render() {
     return (
       <div className='full-post'>
@@ -53,6 +60,7 @@ export default class FullPost extends Component {
   }
 
   editMode() {
+    console.log(this.state);
     return (
       <div className='edit'>
         <div className='edit-field'>
@@ -96,7 +104,7 @@ export default class FullPost extends Component {
 
   onSaveClick = () => {
     this.toggleEditMode();
-    this.props.edit(this.props.id, this.state.title, this.state.description);
+    this.props.edit({ id: this.props.id, title: this.state.title, body: this.state.description });
   }
 
   onCancelClick = () => {

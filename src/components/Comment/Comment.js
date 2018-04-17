@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import moment from 'moment';
 
+import './Comment.css';
+
 class Comment extends Component {
   state = {
     editMode: false,
@@ -50,17 +52,15 @@ class Comment extends Component {
   showMode() {
     return (
       <div className='show'>
-        <div className='data-row'>
+        <div className='content'>
           <div className='when'>
             {this.props.author} on {moment(this.props.timestamp).format('L')} says:
           </div>
-        </div>
-        <div className='data-row'>
           <div className={`body`}>
             {this.props.body}
           </div>
         </div>
-        <div className='data-row'>
+        <div className='additional'>
           <div className='vote-info'>
             <div className='score'>{this.props.voteScore}</div>
             <div className='vote-controls'>
@@ -68,10 +68,10 @@ class Comment extends Component {
               <div className='voting-down' onClick={this.onDownVoteClick}>-1</div>
             </div>
           </div>
-        </div>
-        <div className='data-row'>
-          <div className='comments'>{this.props.commentCount}</div>
-          <div className='actions'><span onClick={this.onEditClick}>Edit</span> | <span onClick={this.onDeleteClick}>Delete</span></div>
+          <div className='controls'>
+            <div className='comments'>{this.props.commentCount}</div>
+            <div className='actions'><span onClick={this.onEditClick}>Edit</span> | <span onClick={this.onDeleteClick}>Delete</span></div>
+          </div>
         </div>
       </div>
     );
@@ -84,6 +84,10 @@ class Comment extends Component {
   onSaveClick = () => {
     this.toggleEditMode();
     this.props.edit(this.props.id, this.state.body);
+  }
+
+  onDeleteClick = () => {
+    this.props.delete(this.props.id);
   }
 
   onCancelClick = () => {

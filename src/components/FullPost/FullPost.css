@@ -2,10 +2,49 @@
   margin-bottom: 20px;
 }
 
+.full-post .edit {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex-grow: 1;
+}
+
+.full-post .edit input {
+  width: 100%;
+}
+
+.full-post .edit textarea {
+  width: 100%;
+}
+
+.full-post .edit .edit-field {
+  margin-top: 10px;
+}
+
+.full-post .edit .actions {
+  margin-top: 10px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.full-post .edit .actions button {
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
 .full-post .show {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+}
+
+.full-post .show .main {
+  flex-grow: 3;
+}
+
+.full-post .show .actions {
+  width: 100px;
 }
 
 .full-post .show .title {

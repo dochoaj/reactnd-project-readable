@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import { FullPost, ItemList, CommentForm, Comment } from '../../components';
 import uid from 'uid';
+
+import './Main.css';
 
 export default class Main extends Component {
   state = {
@@ -15,9 +18,11 @@ export default class Main extends Component {
   }
 
   render() {
+    console.log(this.props);
     return (
       <div className='post-page'>
-        <FullPost {...this.props.post.data} />
+        <Link to='/'>Go to main page</Link>
+        <FullPost {...this.props.post.data} edit={this.props.updatePost} delete={this.deletePost}/>
         <div className='controls'>
           <label>
             Sort comments by:
@@ -63,6 +68,8 @@ export default class Main extends Component {
       isAddingComment: !this.state.isAddingComment
     });
 
+    this.props.fetchPosts();
+
     return this.props.createComment({
       timestamp: Date.now(),
       body,
@@ -91,5 +98,10 @@ export default class Main extends Component {
     this.setState({
       isAddingComment: !this.state.isAddingComment
     });
+  }
+
+  deletePost = (id) => {
+    this.props.deletePost(id);
+    this.props.history.goBack();
   }
 }
