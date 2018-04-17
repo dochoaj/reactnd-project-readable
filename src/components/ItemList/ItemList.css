@@ -5,7 +5,6 @@
 .item-list.item-list-vertical {
   flex-direction: column;
   justify-content: center;
-  align-items: center;
 }
 
 .item-list.item-list-horizontal {
