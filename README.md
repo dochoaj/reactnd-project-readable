@@ -1,6 +1,6 @@
 # Daniel Ochoa's Readable Project
 
-This is my implementation of the `Readable` React Fundamentals Nanodegree project.
+This is my implementation of the `Readable` React Fundamentals Nanodegree project. Based on a Create React App scaffold.
 
 ## Installation
 
