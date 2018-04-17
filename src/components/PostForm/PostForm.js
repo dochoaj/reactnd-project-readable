@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
+import './PostForm.css';
+
 class PostForm extends Component {
   state = {
     title: '',

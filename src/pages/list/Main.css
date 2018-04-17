@@ -22,6 +22,6 @@
 
 .list-page .posts .content {
   margin-top: 10px;
-  display: flex;
+  flex-direction: column;
   justify-content: center;
 }

@@ -1,0 +1,31 @@
+.add-post-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.add-post-form input {
+  width: 100%;
+}
+
+.add-post-form textarea {
+  width: 100%;
+}
+
+.add-post-form .edit-field {
+  margin-top: 10px;
+}
+
+.add-post-form .actions {
+  margin-top: 10px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.add-post-form button {
+  margin: 10px;
+  margin-left: 0;
+  width: 100px;
+  align-items: flex-end;
+}
